@@ -1,7 +1,7 @@
 package Module1
 
 fun main(){
-    val five = '5'
+    val five = "5"
     println(five.javaClass.name)
     five.toByte()
     five.toShort()
