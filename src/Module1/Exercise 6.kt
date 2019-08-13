@@ -5,7 +5,7 @@ package Module1
  */
 
 fun main(){
-    var result='$' //исследую почему объявление переменной в данный момент обязательно
+     //исследую почему объявление переменной в данный момент обязательно
     //запрашиваем данные
     println("Введите первое число и нажмите Enter")
     val num1:String? = readLine()
@@ -16,12 +16,8 @@ fun main(){
     num2!!.toInt()
 
     //Определяем неравенство
-    when {
-        num2>num1 -> result='>'
-        num2<num1 -> result='<'
-        num2==num1 -> result='='
-    }
+    var result= num1>num2
 
     //выводим результат
-    println("$num2 $result $num1 ")
+    println(result)
 }
