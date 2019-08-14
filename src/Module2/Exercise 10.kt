@@ -28,29 +28,19 @@ fun mainMenuDescription() {
 fun mainMenu() {
 
     var input = readLine()
-    try {
-        when (input!!.toInt()) {
-            1 -> addCity()
-            2 -> viewCities()
-            3 -> viewCitiesDistinct()
-            4 -> println("Спасибо что пользуетесь нашим програмным обеспечением. До встречи!")
-            else -> {
-                println(
-                    """
+    when (input) {
+        "1" -> addCity()
+        "2" -> viewCities()
+        "3" -> viewCitiesDistinct()
+        "4" -> println("Спасибо что пользуетесь нашим програмным обеспечением. До встречи!")
+        else -> {
+            println(
+                """
 Введите цифру соответствующую пункту меню
         """
-                )
-                mainMenu()
-            }
+            )
+            mainMenu()
         }
-
-    } catch (e: NumberFormatException) {
-        println(
-            """
-Введите цифру соответствующую пункту меню
-        """
-        )
-        mainMenu()
     }
 }
 
@@ -79,18 +69,18 @@ fun addCity() {
 }
 
 //Вывод всех значений из списка
-fun viewCities(){
+fun viewCities() {
     println("Cписок введенных названий городов")
-    val sizeOfCitiesList = cities.size-1
+    val sizeOfCitiesList = cities.size - 1
     for (i in 0..sizeOfCitiesList) println(cities[i])
     mainMenuDescription()
 }
 
 //Вывод всех уникальных значений из списка
-fun viewCitiesDistinct(){
+fun viewCitiesDistinct() {
     println("Cписок уникальных введенных названий городов")
-    val distinctListOfCities:List<String> = cities.distinct()
-    val sizeOfDistinctListOfCities = distinctListOfCities.size-1
+    val distinctListOfCities: List<String> = cities.distinct()
+    val sizeOfDistinctListOfCities = distinctListOfCities.size - 1
     for (i in 0..sizeOfDistinctListOfCities) println(distinctListOfCities[i])
     mainMenuDescription()
 }
