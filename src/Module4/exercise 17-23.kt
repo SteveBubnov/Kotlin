@@ -1,25 +1,27 @@
 package Module4
 
 fun main() {
-    val firstPlane = Boeing747(1000,20,5)
+    val firstPlane = Boeing747(1000, 20, 5)
     firstPlane.passCapacity = 500
 
     //test
-    println("${firstPlane.maxDistance} ${firstPlane.fuelTank} ${firstPlane.fuelPerDistance} ${firstPlane.passCapacity}")
+    println("${firstPlane.distance} ${firstPlane.fuel} ${firstPlane.fuelPerDistance} ${firstPlane.passCapacity}")
 
 }
 
-open class Aircraft(distance: Int, fuel: Int, fuelConsumption: Any) {
-    val maxDistance: Int = distance
-    val fuelTank: Int = fuel
+interface Passanger {
+    var passCapacity: Int
+}
+
+open class Aircraft(val distance: Int, val fuel: Int, fuelConsumption: Any) {
     var fuelPerDistance = fuelConsumption
-        get() = 100 * fuelTank / maxDistance
+        get() = 100 * fuel / distance
 
 }
 
 //Идея ругалась на отсутствие конструктора класса Боинг (как указывалось по примерам), поверил ей.
-class Boeing747(distance: Int, fuel: Int, fuelConsumption: Any) : Aircraft(distance, fuel, fuelConsumption) {
-    var passCapacity:Int = 0
+class Boeing747(distance: Int, fuel: Int, fuelConsumption: Any) : Aircraft(distance, fuel, fuelConsumption), Passanger {
+    override var passCapacity: Int = 0
 }
 
 
