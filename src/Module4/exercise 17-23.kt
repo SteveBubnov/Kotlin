@@ -13,7 +13,7 @@ interface Passanger {
     var passCapacity: Int
 }
 
-open class Aircraft(val distance: Int, val fuel: Int, fuelConsumption: Any) {
+abstract class Aircraft(val distance: Int, val fuel: Int, fuelConsumption: Any) {
     var fuelPerDistance = fuelConsumption
         get() = 100 * fuel / distance
 
