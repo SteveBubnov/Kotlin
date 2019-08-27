@@ -5,6 +5,12 @@ fun main() {
     firstPlane.passCapacity = 500
     firstPlane.info()
 
+    val auto1 = Auto("1","2","3")
+    val auto2 = Auto ("Mercedes", "silver", "NH134EU")
+
+    println()
+    println(auto1.toString())
+    println(auto2.toString())
 }
 
 interface Passanger {
@@ -33,6 +39,11 @@ class Boeing747(distance: Int, fuel: Int, fuelConsumption: Any) : Aircraft(dista
     }
 }
 
+data class Auto<B,C,S>(val brand:B, val color:C, val serial:S){
+    override fun toString(): String {
+        return "Car: Brand - $brand, Color - $color, Serial - $serial"
+    }
+}
 
 
 
